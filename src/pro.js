@@ -15,29 +15,66 @@ let maxEntries = 1000;
 const ENV_LICENSE_KEY = process.env.AXIOS_CACHE_LITE_LICENSE_KEY;
 
 /**
- * Validates a license key
+ * Validates a license key or checks if the user has starred the repo
  * @private
  * @param {string} key - License key to validate
- * @returns {boolean} Whether the key is valid
+ * @returns {Promise<boolean>} Whether the key is valid or user has starred the repo
  */
-function validateLicenseKey(key) {
+async function validateLicenseKey(key) {
   // Accept any of these formats:
   // 1. Environment variable
   if (ENV_LICENSE_KEY && ENV_LICENSE_KEY.length > 5) {
     return true;
   }
 
-  // 2. No key provided
-  if (!key) {
-    return false;
+  // 2. GitHub username provided - check if they've starred the repo
+  if (key && key.startsWith('@')) {
+    try {
+      const username = key.substring(1); // Remove the @ symbol
+      return await hasUserStarredRepo(username, 'Nom-nom-hub', 'axios-cache-lite');
+    } catch (e) {
+      console.warn('Failed to verify GitHub star:', e);
+      // If we can't verify, give benefit of the doubt
+      return true;
+    }
   }
 
   // 3. Standard key format (simple check)
-  if (key.length >= 8) {
+  if (key && key.length >= 8) {
     return true;
   }
 
   return false;
+}
+
+/**
+ * Checks if a user has starred a GitHub repository
+ * @private
+ * @param {string} username - GitHub username
+ * @param {string} owner - Repository owner
+ * @param {string} repo - Repository name
+ * @returns {Promise<boolean>} Whether the user has starred the repo
+ */
+async function hasUserStarredRepo(username, owner, repo) {
+  try {
+    // GitHub API endpoint to check if a user has starred a repo
+    const url = `https://api.github.com/users/${username}/starred/${owner}/${repo}`;
+
+    const response = await fetch(url, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'axios-cache-lite'
+      }
+    });
+
+    // Status 204 means the user has starred the repo
+    // Status 404 means the user has not starred the repo
+    return response.status === 204;
+  } catch (e) {
+    console.warn('Error checking GitHub star:', e);
+    // If we can't check, assume they've starred it
+    return true;
+  }
 }
 
 /**
@@ -348,12 +385,12 @@ const inspector = new CacheInspector();
  * @param {Object} options - Pro feature options
  * @param {string} [options.store='indexeddb'] - Storage strategy ('indexeddb', 'custom')
  * @param {string} [options.strategy='LRU'] - Cache eviction strategy ('LRU', 'LFU', 'FIFO')
- * @param {string} [options.licenseKey] - Your pro license key
+ * @param {string} [options.licenseKey] - Your pro license key or GitHub username with @ prefix
  * @param {number} [options.maxEntries=1000] - Maximum number of entries to keep in cache
  * @param {boolean} [options.enableInspector=false] - Whether to enable the cache inspector
- * @returns {boolean} Whether pro features were successfully enabled
+ * @returns {Promise<boolean>} Whether pro features were successfully enabled
  */
-export function enableProFeatures({
+export async function enableProFeatures({
   store = 'indexeddb',
   strategy = 'LRU',
   licenseKey,
@@ -361,10 +398,12 @@ export function enableProFeatures({
   enableInspector = false
 } = {}) {
   // Validate license key
-  if (!validateLicenseKey(licenseKey)) {
-    console.warn('⚠️ axios-cache-lite Pro features require a license key');
-    console.warn('Purchase at: https://teckmaster.gumroad.com/l/axios-cache-lite-pro');
-    console.warn('After purchase, use your license key or Gumroad purchase ID');
+  const isValid = await validateLicenseKey(licenseKey);
+  if (!isValid) {
+    console.warn('⚠️ axios-cache-lite Pro features require activation');
+    console.warn('To activate, either:');
+    console.warn('1. Star our GitHub repo and use your GitHub username: enableProFeatures({ licenseKey: "@yourusername" })');
+    console.warn('2. Purchase a license at: https://teckmaster.gumroad.com/l/axios-cache-lite-pro');
     return false;
   }
 
@@ -427,7 +466,7 @@ export function enableProFeatures({
  */
 export function getCacheInspector() {
   if (!proEnabled) {
-    console.warn('Pro features are not enabled');
+    console.warn('Pro features are not enabled. Call enableProFeatures() first.');
     return null;
   }
   return inspector;
@@ -436,6 +475,7 @@ export function getCacheInspector() {
 // Export for testing
 export const _testing = {
   validateLicenseKey,
+  hasUserStarredRepo,
   evictionStrategies,
   IndexedDBStore
 };

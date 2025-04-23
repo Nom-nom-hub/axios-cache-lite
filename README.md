@@ -93,14 +93,18 @@ For advanced use cases, axios-cache-lite offers Pro features:
 import { cachedAxios } from 'axios-cache-lite';
 import { enableProFeatures, getCacheInspector } from 'axios-cache-lite/pro';
 
-// Enable pro features
-enableProFeatures({
+// Enable pro features (now async)
+const enabled = await enableProFeatures({
   store: 'indexeddb', // 'indexeddb' or 'custom'
   strategy: 'LRU',    // 'LRU', 'LFU', or 'FIFO'
-  licenseKey: 'your-license-key', // From your purchase
+  licenseKey: '@yourusername', // Your GitHub username (after starring the repo)
   maxEntries: 1000,   // Maximum number of entries to keep in cache
   enableInspector: true // Enable cache inspector
 });
+
+if (enabled) {
+  console.log('Pro features enabled successfully!');
+}
 
 // Use cachedAxios as normal
 const response = await cachedAxios({
@@ -123,15 +127,31 @@ console.log(stats);
 
 ### How to Get Pro
 
-1. Purchase a license at [Gumroad](https://teckmaster.gumroad.com/l/axios-cache-lite-pro)
-2. Use your license key or purchase ID to enable Pro features
+**Option 1: Star the Repository (Free)**
+
+1. Star our [GitHub repository](https://github.com/Nom-nom-hub/axios-cache-lite)
+2. Use your GitHub username to enable Pro features:
 
 ```javascript
-enableProFeatures({
+await enableProFeatures({
+  licenseKey: '@yourusername', // Your GitHub username with @ prefix
+  // other options...
+});
+```
+
+**Option 2: Purchase a License**
+
+1. Purchase a license at [Gumroad](https://teckmaster.gumroad.com/l/axios-cache-lite-pro)
+2. Use your license key or purchase ID to enable Pro features:
+
+```javascript
+await enableProFeatures({
   licenseKey: 'YOUR-LICENSE-KEY', // From your purchase email
   // other options...
 });
 ```
+
+**Note:** The `enableProFeatures` function is now async and returns a Promise.
 
 ### Cache Inspector
 
