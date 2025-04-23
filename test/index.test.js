@@ -19,9 +19,6 @@ global.localStorage = {
 };
 
 // Mock axios module
-import * as axiosModule from 'axios';
-
-// Override the axios import in our module
 global.axios = async (config) => {
   requestCount++;
 
