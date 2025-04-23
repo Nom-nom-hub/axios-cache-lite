@@ -1,11 +1,11 @@
 # axios-cache-lite
 
 [![npm version](https://img.shields.io/npm/v/axios-cache-lite.svg)](https://www.npmjs.com/package/axios-cache-lite)
-[![Build Status](https://github.com/axios-cache-lite/axios-cache-lite/workflows/CI/badge.svg)](https://github.com/axios-cache-lite/axios-cache-lite/actions)
+[![Build Status](https://github.com/Nom-nom-hub/axios-cache-lite/workflows/CI/badge.svg)](https://github.com/Nom-nom-hub/axios-cache-lite/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/axios-cache-lite)](https://bundlephobia.com/package/axios-cache-lite)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)](https://www.typescriptlang.org/)
-[![Performance: Fast](https://img.shields.io/badge/Performance-⚡️%20Fast-brightgreen)](https://github.com/axios-cache-lite/axios-cache-lite#benchmark)
+[![Performance: Fast](https://img.shields.io/badge/Performance-⚡️%20Fast-brightgreen)](https://github.com/Nom-nom-hub/axios-cache-lite#benchmark)
 
 A zero-config, lightweight caching solution for Axios requests with TTL, stale-while-revalidate, and retry support.
 
@@ -190,7 +190,7 @@ console.log(response.data.name); // TypeScript knows this is a string
 
 ## Blog Post: How I Solved Axios Caching in 20 LOC
 
-Check out our [blog post on Dev.to](https://dev.to/axioscachelite/how-i-solved-axios-caching-in-20-loc-1234) to learn about the design decisions behind axios-cache-lite and how we implemented the core functionality in just 20 lines of code.
+Check out our [blog post on Dev.to](https://dev.to/nomnom/how-i-solved-axios-caching-in-20-loc) to learn about the design decisions behind axios-cache-lite and how we implemented the core functionality in just 20 lines of code.
 
 ## License
 

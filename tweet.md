@@ -14,5 +14,5 @@ const data = await cachedAxios({
 🧠 In-memory + localStorage
 
 npm: https://www.npmjs.com/package/axios-cache-lite
-GitHub: https://github.com/axios-cache-lite/axios-cache-lite
+GitHub: https://github.com/Nom-nom-hub/axios-cache-lite
 #javascript #webdev

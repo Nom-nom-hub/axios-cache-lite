@@ -40,10 +40,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axios-cache-lite/axios-cache-lite.git"
+    "url": "git+https://github.com/Nom-nom-hub/axios-cache-lite.git"
   },
   "bugs": {
-    "url": "https://github.com/axios-cache-lite/axios-cache-lite/issues"
+    "url": "https://github.com/Nom-nom-hub/axios-cache-lite/issues"
   },
-  "homepage": "https://github.com/axios-cache-lite/axios-cache-lite#readme"
+  "homepage": "https://github.com/Nom-nom-hub/axios-cache-lite#readme"
 }

@@ -111,7 +111,7 @@ Caching HTTP requests can dramatically improve performance. In our benchmarks, c
 
 Building a simple, effective caching solution for Axios doesn't have to be complicated. With just ~100 lines of code (and the core in about 20), we've created a powerful tool that can significantly improve the performance of your web applications.
 
-Check out [axios-cache-lite on GitHub](https://github.com/axios-cache-lite/axios-cache-lite) and give it a try in your next project!
+Check out [axios-cache-lite on GitHub](https://github.com/Nom-nom-hub/axios-cache-lite) and give it a try in your next project!
 
 ```bash
 npm install axios-cache-lite
