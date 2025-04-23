@@ -388,6 +388,10 @@ export function enableProFeatures({
 
   // Mark as enabled
   proEnabled = true;
+
+  // Run initial cache eviction if needed
+  evictCache().catch(e => console.warn('Initial cache eviction failed:', e));
+
   console.log(`axios-cache-lite pro features enabled (${store}, ${strategy})`);
   return true;
 }
