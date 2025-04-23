@@ -1,0 +1,49 @@
+{
+  "name": "axios-cache-lite",
+  "version": "1.0.0",
+  "description": "Zero-config, in-memory + localStorage TTL cache for Axios requests",
+  "main": "src/index.js",
+  "type": "module",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "node test/index.test.js && node test/pro.test.js",
+    "test:core": "node test/index.test.js",
+    "test:pro": "node test/pro.test.js",
+    "lint": "eslint src/ test/",
+    "benchmark": "node benchmark/index.js",
+    "build": "mkdir -p dist && cp -r src/ *.d.ts package.json README.md LICENSE dist/",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "axios",
+    "cache",
+    "ttl",
+    "stale-while-revalidate",
+    "retry",
+    "indexeddb",
+    "localStorage"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "axios": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "typescript": "^5.0.4"
+  },
+  "files": [
+    "src/",
+    "*.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axios-cache-lite/axios-cache-lite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/axios-cache-lite/axios-cache-lite/issues"
+  },
+  "homepage": "https://github.com/axios-cache-lite/axios-cache-lite#readme"
+}
