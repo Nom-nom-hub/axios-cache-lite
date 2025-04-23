@@ -15,19 +15,18 @@ let maxEntries = 1000;
 const ENV_LICENSE_KEY = process.env.AXIOS_CACHE_LITE_LICENSE_KEY;
 
 /**
- * Validates a license key or checks if the user has starred the repo
+ * Validates if the user has starred the repo
  * @private
- * @param {string} key - License key to validate
- * @returns {Promise<boolean>} Whether the key is valid or user has starred the repo
+ * @param {string} key - GitHub username with @ prefix
+ * @returns {Promise<boolean>} Whether the user has starred the repo
  */
 async function validateLicenseKey(key) {
-  // Accept any of these formats:
-  // 1. Environment variable
-  if (ENV_LICENSE_KEY && ENV_LICENSE_KEY.length > 5) {
+  // Accept environment variable for CI/CD environments
+  if (ENV_LICENSE_KEY && ENV_LICENSE_KEY === 'CI_ENVIRONMENT') {
     return true;
   }
 
-  // 2. GitHub username provided - check if they've starred the repo
+  // GitHub username provided - check if they've starred the repo
   if (key && key.startsWith('@')) {
     try {
       const username = key.substring(1); // Remove the @ symbol
@@ -37,11 +36,6 @@ async function validateLicenseKey(key) {
       // If we can't verify, give benefit of the doubt
       return true;
     }
-  }
-
-  // 3. Standard key format (simple check)
-  if (key && key.length >= 8) {
-    return true;
   }
 
   return false;
@@ -385,7 +379,7 @@ const inspector = new CacheInspector();
  * @param {Object} options - Pro feature options
  * @param {string} [options.store='indexeddb'] - Storage strategy ('indexeddb', 'custom')
  * @param {string} [options.strategy='LRU'] - Cache eviction strategy ('LRU', 'LFU', 'FIFO')
- * @param {string} [options.licenseKey] - Your pro license key or GitHub username with @ prefix
+ * @param {string} [options.licenseKey] - Your GitHub username with @ prefix (e.g., @username)
  * @param {number} [options.maxEntries=1000] - Maximum number of entries to keep in cache
  * @param {boolean} [options.enableInspector=false] - Whether to enable the cache inspector
  * @returns {Promise<boolean>} Whether pro features were successfully enabled
@@ -397,13 +391,13 @@ export async function enableProFeatures({
   maxEntries: maxEntriesOption = 1000,
   enableInspector = false
 } = {}) {
-  // Validate license key
+  // Validate GitHub star
   const isValid = await validateLicenseKey(licenseKey);
   if (!isValid) {
     console.warn('⚠️ axios-cache-lite Pro features require activation');
-    console.warn('To activate, either:');
-    console.warn('1. Star our GitHub repo and use your GitHub username: enableProFeatures({ licenseKey: "@yourusername" })');
-    console.warn('2. Purchase a license at: https://teckmaster.gumroad.com/l/axios-cache-lite-pro');
+    console.warn('To activate:');
+    console.warn('1. Star our GitHub repo: https://github.com/Nom-nom-hub/axios-cache-lite');
+    console.warn('2. Use your GitHub username: enableProFeatures({ licenseKey: "@yourusername" })');
     return false;
   }
 
