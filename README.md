@@ -85,7 +85,7 @@ clearCache();
 | `retry` | number | 2 | Number of retries on network error |
 | `useLocalStorage` | boolean | true | Whether to use localStorage as a persistent cache |
 
-## Pro Features (requires license key)
+## Pro Features
 
 For advanced use cases, axios-cache-lite offers Pro features:
 
@@ -97,7 +97,7 @@ import { enableProFeatures, getCacheInspector } from 'axios-cache-lite/pro';
 enableProFeatures({
   store: 'indexeddb', // 'indexeddb' or 'custom'
   strategy: 'LRU',    // 'LRU', 'LFU', or 'FIFO'
-  licenseKey: 'your-license-key',
+  licenseKey: 'your-license-key', // From your purchase
   maxEntries: 1000,   // Maximum number of entries to keep in cache
   enableInspector: true // Enable cache inspector
 });
@@ -113,12 +113,25 @@ const stats = await inspector.getStats();
 console.log(stats);
 ```
 
-Pro features include:
-- IndexedDB storage for larger cache capacity
-- Advanced cache eviction strategies (LRU, LFU, FIFO)
-- Cache size limits with automatic pruning
-- Cache inspector for debugging
-- Custom storage adapters
+### Pro Features Include:
+
+- **IndexedDB Storage**: Store more data with IndexedDB instead of localStorage
+- **Advanced Cache Strategies**: LRU, LFU, and FIFO eviction strategies
+- **Cache Size Management**: Automatically prune old entries when limits are reached
+- **Cache Inspector**: Debug and monitor your cache in real-time
+- **Custom Storage Adapters**: Create your own storage implementations
+
+### How to Get Pro
+
+1. Purchase a license at [Gumroad](https://teckmaster.gumroad.com/l/axios-cache-lite-pro)
+2. Use your license key or purchase ID to enable Pro features
+
+```javascript
+enableProFeatures({
+  licenseKey: 'YOUR-LICENSE-KEY', // From your purchase email
+  // other options...
+});
+```
 
 ### Cache Inspector
 

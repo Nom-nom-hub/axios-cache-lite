@@ -5,8 +5,10 @@ Thank you for purchasing axios-cache-lite Pro!
 ## Your License Key
 
 ```
-{{license_key}}
+{{purchase.id}}
 ```
+
+(Use this as your license key when activating the Pro features)
 
 ## Installation Instructions
 
@@ -19,13 +21,13 @@ Thank you for purchasing axios-cache-lite Pro!
    ```javascript
    import { cachedAxios } from 'axios-cache-lite';
    import { enableProFeatures } from 'axios-cache-lite/pro';
-   
+
    enableProFeatures({
-     licenseKey: '{{license_key}}', // Your license key from above
+     licenseKey: '{{purchase.id}}', // Your license key from above
      store: 'indexeddb',
      strategy: 'LRU'
    });
-   
+
    // Use cachedAxios as normal
    const response = await cachedAxios({
      url: '/api/data'
@@ -40,10 +42,8 @@ Thank you for purchasing axios-cache-lite Pro!
 - License key protection
 - Priority support
 
-## Support
-
-If you have any questions or need assistance, please contact:
-support@youremail.com
+For full documentation, please visit:
+https://github.com/Nom-nom-hub/axios-cache-lite
 
 ## Terms of Use
 

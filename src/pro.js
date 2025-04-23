@@ -21,13 +21,23 @@ const ENV_LICENSE_KEY = process.env.AXIOS_CACHE_LITE_LICENSE_KEY;
  * @returns {boolean} Whether the key is valid
  */
 function validateLicenseKey(key) {
-  // In a real implementation, this would validate against a license server
-  // For this example, we'll accept any key that's at least 20 characters long
-  // or the environment variable
-  return (
-    (key && key.length >= 20) ||
-    (ENV_LICENSE_KEY && ENV_LICENSE_KEY.length >= 20)
-  );
+  // Accept any of these formats:
+  // 1. Environment variable
+  if (ENV_LICENSE_KEY && ENV_LICENSE_KEY.length > 5) {
+    return true;
+  }
+
+  // 2. No key provided
+  if (!key) {
+    return false;
+  }
+
+  // 3. Standard key format (simple check)
+  if (key.length >= 8) {
+    return true;
+  }
+
+  return false;
 }
 
 /**
@@ -352,7 +362,9 @@ export function enableProFeatures({
 } = {}) {
   // Validate license key
   if (!validateLicenseKey(licenseKey)) {
-    console.warn('Invalid or missing license key for axios-cache-lite pro features');
+    console.warn('⚠️ axios-cache-lite Pro features require a license key');
+    console.warn('Purchase at: https://teckmaster.gumroad.com/l/axios-cache-lite-pro');
+    console.warn('After purchase, use your license key or Gumroad purchase ID');
     return false;
   }
 
@@ -365,19 +377,25 @@ export function enableProFeatures({
       currentStore = new IndexedDBStore();
     } catch (e) {
       console.warn('Failed to initialize IndexedDB store:', e);
-      return false;
+      console.warn('IndexedDB may not be available in this environment');
+      console.warn('Pro features will be partially enabled with limited functionality');
+      // Continue with limited functionality
     }
   } else if (store === 'custom' && arguments[0]?.customStore) {
     currentStore = arguments[0].customStore;
-  } else {
-    console.warn('Invalid store option');
-    return false;
+  } else if (store !== 'indexeddb') {
+    console.warn(`Invalid store option: ${store}. Using 'indexeddb' instead.`);
+    try {
+      currentStore = new IndexedDBStore();
+    } catch (e) {
+      // Silently fail and continue with limited functionality
+    }
   }
 
   // Set strategy
   if (!evictionStrategies[strategy]) {
-    console.warn('Invalid strategy option');
-    return false;
+    console.warn(`Invalid strategy option: ${strategy}. Using 'LRU' instead.`);
+    strategy = 'LRU';
   }
   currentStrategy = strategy;
 
@@ -390,9 +408,16 @@ export function enableProFeatures({
   proEnabled = true;
 
   // Run initial cache eviction if needed
-  evictCache().catch(e => console.warn('Initial cache eviction failed:', e));
+  if (currentStore) {
+    evictCache().catch(e => console.warn('Initial cache eviction failed:', e));
+  }
 
-  console.log(`axios-cache-lite pro features enabled (${store}, ${strategy})`);
+  console.log('✅ axios-cache-lite Pro features enabled!');
+  console.log(`   - Storage: ${currentStore ? store : 'memory-only (IndexedDB unavailable)'}`);
+  console.log(`   - Strategy: ${strategy}`);
+  console.log(`   - Max entries: ${maxEntries}`);
+  console.log(`   - Inspector: ${enableInspector ? 'enabled' : 'disabled'}`);
+
   return true;
 }
 
