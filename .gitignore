@@ -25,3 +25,26 @@ coverage/
 *.sln
 *.sw?
 .DS_Store
+._*
+
+# Package files
+*.tgz
+*.zip
+
+# Gumroad related files
+gumroad-package/
+axios-cache-lite-pro.zip
+
+# Marketing materials
+images/
+*.svg
+
+# License related
+license-generator.js
+license-template.txt
+LICENSE-PRO.md
+
+# Documentation drafts
+blog-post.md
+tweet.md
+documentation.md
