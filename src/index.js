@@ -3,15 +3,8 @@
  * @module axios-cache-lite
  */
 
-// Import axios with fallback for testing
-let axios;
-if (typeof global !== 'undefined' && global.axios) {
-  // Use the global mock in test environment
-  axios = global.axios;
-} else {
-  // Use the real axios in production
-  axios = (await import('axios')).default;
-}
+// Import axios (will be mocked in tests)
+import axios from 'axios';
 
 // In-memory cache store
 export const memoryCache = new Map();
