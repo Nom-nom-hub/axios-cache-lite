@@ -1,11 +1,16 @@
-# axios-cache-lite
+<h1 align="center">
+  <img src="logo.png" alt="axios-cache-lite" width="200" height="200"><br>
+  axios-cache-lite
+</h1>
 
-[![npm version](https://img.shields.io/npm/v/axios-cache-lite.svg)](https://www.npmjs.com/package/axios-cache-lite)
-[![Build Status](https://github.com/Nom-nom-hub/axios-cache-lite/workflows/CI/badge.svg)](https://github.com/Nom-nom-hub/axios-cache-lite/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Bundle Size](https://img.shields.io/bundlephobia/minzip/axios-cache-lite@1.0.0)](https://bundlephobia.com/package/axios-cache-lite@1.0.0)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)](https://www.typescriptlang.org/)
-[![Performance: Fast](https://img.shields.io/badge/Performance-⚡️%20Fast-brightgreen)](https://github.com/Nom-nom-hub/axios-cache-lite#benchmark)
+<p align="center">
+  <a href="https://www.npmjs.com/package/axios-cache-lite"><img src="https://img.shields.io/npm/v/axios-cache-lite.svg" alt="npm version"></a>
+  <a href="https://github.com/Nom-nom-hub/axios-cache-lite/actions"><img src="https://github.com/Nom-nom-hub/axios-cache-lite/workflows/CI/badge.svg" alt="Build Status"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://bundlephobia.com/package/axios-cache-lite@1.0.0"><img src="https://img.shields.io/bundlephobia/minzip/axios-cache-lite@1.0.0" alt="Bundle Size"></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-Ready-blue" alt="TypeScript"></a>
+  <a href="https://github.com/Nom-nom-hub/axios-cache-lite#benchmark"><img src="https://img.shields.io/badge/Performance-⚡️%20Fast-brightgreen" alt="Performance: Fast"></a>
+</p>
 
 A zero-config, lightweight caching solution for Axios requests with TTL, stale-while-revalidate, and retry support.
 
