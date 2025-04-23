@@ -1,0 +1,72 @@
+<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="640" y="80" font-family="Arial" font-size="40" font-weight="bold" text-anchor="middle" fill="#1864ab">Pro Features</text>
+  
+  <!-- Free vs Pro comparison -->
+  <rect x="140" y="150" width="400" height="450" rx="10" fill="#e9ecef" stroke="#dee2e6" stroke-width="2"/>
+  <text x="340" y="190" font-family="Arial" font-size="30" font-weight="bold" text-anchor="middle" fill="#495057">Free</text>
+  
+  <rect x="740" y="150" width="400" height="450" rx="10" fill="#e7f5ff" stroke="#4dabf7" stroke-width="3"/>
+  <text x="940" y="190" font-family="Arial" font-size="30" font-weight="bold" text-anchor="middle" fill="#1971c2">Pro</text>
+  
+  <!-- Free features -->
+  <circle cx="180" cy="240" r="10" fill="#74c0fc"/>
+  <text x="200" y="245" font-family="Arial" font-size="18" fill="#495057" dx="10">In-memory cache</text>
+  
+  <circle cx="180" cy="280" r="10" fill="#74c0fc"/>
+  <text x="200" y="285" font-family="Arial" font-size="18" fill="#495057" dx="10">localStorage persistence</text>
+  
+  <circle cx="180" cy="320" r="10" fill="#74c0fc"/>
+  <text x="200" y="325" font-family="Arial" font-size="18" fill="#495057" dx="10">TTL expiration</text>
+  
+  <circle cx="180" cy="360" r="10" fill="#74c0fc"/>
+  <text x="200" y="365" font-family="Arial" font-size="18" fill="#495057" dx="10">Stale-while-revalidate</text>
+  
+  <circle cx="180" cy="400" r="10" fill="#74c0fc"/>
+  <text x="200" y="405" font-family="Arial" font-size="18" fill="#495057" dx="10">Automatic retry</text>
+  
+  <circle cx="180" cy="440" r="10" fill="#74c0fc"/>
+  <text x="200" y="445" font-family="Arial" font-size="18" fill="#495057" dx="10">TypeScript definitions</text>
+  
+  <circle cx="180" cy="480" r="10" fill="#74c0fc"/>
+  <text x="200" y="485" font-family="Arial" font-size="18" fill="#495057" dx="10">MIT License</text>
+  
+  <!-- Pro features -->
+  <circle cx="780" cy="240" r="10" fill="#1971c2"/>
+  <text x="800" y="245" font-family="Arial" font-size="18" fill="#1971c2" dx="10" font-weight="bold">All Free features, plus:</text>
+  
+  <circle cx="780" cy="280" r="10" fill="#1971c2"/>
+  <text x="800" y="285" font-family="Arial" font-size="18" fill="#1971c2" dx="10">IndexedDB storage</text>
+  
+  <circle cx="780" cy="320" r="10" fill="#1971c2"/>
+  <text x="800" y="325" font-family="Arial" font-size="18" fill="#1971c2" dx="10">LRU cache strategy</text>
+  
+  <circle cx="780" cy="360" r="10" fill="#1971c2"/>
+  <text x="800" y="365" font-family="Arial" font-size="18" fill="#1971c2" dx="10">LFU cache strategy</text>
+  
+  <circle cx="780" cy="400" r="10" fill="#1971c2"/>
+  <text x="800" y="405" font-family="Arial" font-size="18" fill="#1971c2" dx="10">FIFO cache strategy</text>
+  
+  <circle cx="780" cy="440" r="10" fill="#1971c2"/>
+  <text x="800" y="445" font-family="Arial" font-size="18" fill="#1971c2" dx="10">Cache inspector CLI</text>
+  
+  <circle cx="780" cy="480" r="10" fill="#1971c2"/>
+  <text x="800" y="485" font-family="Arial" font-size="18" fill="#1971c2" dx="10">License key protection</text>
+  
+  <circle cx="780" cy="520" r="10" fill="#1971c2"/>
+  <text x="800" y="525" font-family="Arial" font-size="18" fill="#1971c2" dx="10">Priority support</text>
+  
+  <circle cx="780" cy="560" r="10" fill="#1971c2"/>
+  <text x="800" y="565" font-family="Arial" font-size="18" fill="#1971c2" dx="10">Commercial use license</text>
+  
+  <!-- Pro badge -->
+  <rect x="940" y="120" width="80" height="30" rx="15" fill="#fcc419"/>
+  <text x="980" y="140" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#212529">PRO</text>
+  
+  <!-- Call to action -->
+  <rect x="490" y="640" width="300" height="50" rx="25" fill="#1971c2"/>
+  <text x="640" y="670" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">Upgrade to Pro Today!</text>
+</svg>

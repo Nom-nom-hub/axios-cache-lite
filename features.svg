@@ -1,0 +1,74 @@
+<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="640" y="80" font-family="Arial" font-size="40" font-weight="bold" text-anchor="middle" fill="#1864ab">Core Features</text>
+  
+  <!-- Feature 1: In-memory Cache -->
+  <circle cx="220" cy="200" r="50" fill="#4dabf7" opacity="0.8"/>
+  <text x="220" y="205" font-family="Arial" font-size="30" text-anchor="middle" fill="white">🧠</text>
+  <text x="220" y="280" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">In-memory Cache</text>
+  <text x="220" y="310" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">Lightning-fast access to</text>
+  <text x="220" y="330" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">recently used data</text>
+  
+  <!-- Feature 2: localStorage -->
+  <circle cx="440" cy="200" r="50" fill="#4dabf7" opacity="0.8"/>
+  <text x="440" y="205" font-family="Arial" font-size="30" text-anchor="middle" fill="white">💾</text>
+  <text x="440" y="280" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">localStorage</text>
+  <text x="440" y="310" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">Persistent cache</text>
+  <text x="440" y="330" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">between page refreshes</text>
+  
+  <!-- Feature 3: TTL Expiration -->
+  <circle cx="660" cy="200" r="50" fill="#4dabf7" opacity="0.8"/>
+  <text x="660" y="205" font-family="Arial" font-size="30" text-anchor="middle" fill="white">⏱️</text>
+  <text x="660" y="280" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">TTL Expiration</text>
+  <text x="660" y="310" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">Automatic cache</text>
+  <text x="660" y="330" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">invalidation</text>
+  
+  <!-- Feature 4: Stale-While-Revalidate -->
+  <circle cx="880" cy="200" r="50" fill="#4dabf7" opacity="0.8"/>
+  <text x="880" y="205" font-family="Arial" font-size="30" text-anchor="middle" fill="white">🔄</text>
+  <text x="880" y="280" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">SWR Pattern</text>
+  <text x="880" y="310" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">Return stale data while</text>
+  <text x="880" y="330" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">refreshing in background</text>
+  
+  <!-- Feature 5: Retry Support -->
+  <circle cx="1100" cy="200" r="50" fill="#4dabf7" opacity="0.8"/>
+  <text x="1100" y="205" font-family="Arial" font-size="30" text-anchor="middle" fill="white">🔁</text>
+  <text x="1100" y="280" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">Auto-Retry</text>
+  <text x="1100" y="310" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">Exponential backoff</text>
+  <text x="1100" y="330" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">for failed requests</text>
+  
+  <!-- Feature 6: Zero Config -->
+  <circle cx="330" cy="450" r="50" fill="#4dabf7" opacity="0.8"/>
+  <text x="330" y="455" font-family="Arial" font-size="30" text-anchor="middle" fill="white">⚙️</text>
+  <text x="330" y="530" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">Zero Config</text>
+  <text x="330" y="560" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">Works out of the box</text>
+  <text x="330" y="580" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">with sensible defaults</text>
+  
+  <!-- Feature 7: TypeScript Support -->
+  <circle cx="550" cy="450" r="50" fill="#4dabf7" opacity="0.8"/>
+  <text x="550" y="455" font-family="Arial" font-size="30" text-anchor="middle" fill="white">📝</text>
+  <text x="550" y="530" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">TypeScript</text>
+  <text x="550" y="560" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">Full type definitions</text>
+  <text x="550" y="580" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">for better DX</text>
+  
+  <!-- Feature 8: Small Size -->
+  <circle cx="770" cy="450" r="50" fill="#4dabf7" opacity="0.8"/>
+  <text x="770" y="455" font-family="Arial" font-size="30" text-anchor="middle" fill="white">📦</text>
+  <text x="770" y="530" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">Tiny Size</text>
+  <text x="770" y="560" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">Core functionality in</text>
+  <text x="770" y="580" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">just ~100 lines of code</text>
+  
+  <!-- Feature 9: Framework Agnostic -->
+  <circle cx="990" cy="450" r="50" fill="#4dabf7" opacity="0.8"/>
+  <text x="990" y="455" font-family="Arial" font-size="30" text-anchor="middle" fill="white">🔌</text>
+  <text x="990" y="530" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">Framework Agnostic</text>
+  <text x="990" y="560" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">Works with React, Vue,</text>
+  <text x="990" y="580" font-family="Arial" font-size="16" text-anchor="middle" fill="#495057" width="200">Angular, or vanilla JS</text>
+  
+  <!-- Footer -->
+  <text x="640" y="650" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">All in a zero-dependency package!</text>
+  <text x="640" y="680" font-family="Arial" font-size="18" text-anchor="middle" fill="#495057">(except axios itself)</text>
+</svg>

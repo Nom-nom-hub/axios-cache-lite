@@ -1,0 +1,60 @@
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c7ed6"/>
+      <stop offset="100%" stop-color="#4dabf7"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="600" height="600" fill="url(#bg-gradient)"/>
+  
+  <!-- Tech pattern background -->
+  <g fill="white" opacity="0.05">
+    <rect x="50" y="50" width="20" height="20" rx="2"/>
+    <rect x="100" y="50" width="20" height="20" rx="2"/>
+    <rect x="150" y="50" width="20" height="20" rx="2"/>
+    <!-- More pattern elements -->
+    <rect x="50" y="100" width="20" height="20" rx="2"/>
+    <rect x="150" y="100" width="20" height="20" rx="2"/>
+    <rect x="250" y="100" width="20" height="20" rx="2"/>
+    <rect x="350" y="100" width="20" height="20" rx="2"/>
+    <rect x="450" y="100" width="20" height="20" rx="2"/>
+    <rect x="550" y="100" width="20" height="20" rx="2"/>
+    <!-- More pattern elements -->
+    <rect x="50" y="200" width="20" height="20" rx="2"/>
+    <rect x="150" y="200" width="20" height="20" rx="2"/>
+    <rect x="250" y="200" width="20" height="20" rx="2"/>
+    <rect x="350" y="200" width="20" height="20" rx="2"/>
+    <rect x="450" y="200" width="20" height="20" rx="2"/>
+    <!-- More pattern elements -->
+    <rect x="50" y="300" width="20" height="20" rx="2"/>
+    <rect x="150" y="300" width="20" height="20" rx="2"/>
+    <rect x="250" y="300" width="20" height="20" rx="2"/>
+    <rect x="350" y="300" width="20" height="20" rx="2"/>
+    <rect x="450" y="300" width="20" height="20" rx="2"/>
+    <rect x="550" y="300" width="20" height="20" rx="2"/>
+    <!-- More pattern elements -->
+    <rect x="50" y="400" width="20" height="20" rx="2"/>
+    <rect x="150" y="400" width="20" height="20" rx="2"/>
+    <rect x="250" y="400" width="20" height="20" rx="2"/>
+    <rect x="350" y="400" width="20" height="20" rx="2"/>
+    <rect x="450" y="400" width="20" height="20" rx="2"/>
+    <!-- More pattern elements -->
+    <rect x="50" y="500" width="20" height="20" rx="2"/>
+    <rect x="150" y="500" width="20" height="20" rx="2"/>
+    <rect x="250" y="500" width="20" height="20" rx="2"/>
+    <rect x="350" y="500" width="20" height="20" rx="2"/>
+    <rect x="450" y="500" width="20" height="20" rx="2"/>
+    <rect x="550" y="500" width="20" height="20" rx="2"/>
+  </g>
+  
+  <!-- Lightning bolt icon -->
+  <path d="M300,180 L260,280 L320,260 L280,380 L360,240 L300,260 Z" fill="#fcc419" stroke="white" stroke-width="8"/>
+  
+  <!-- Product name -->
+  <text x="300" y="450" font-family="Arial" font-size="48" font-weight="bold" text-anchor="middle" fill="white">axios-cache-lite</text>
+  
+  <!-- Tagline -->
+  <text x="300" y="500" font-family="Arial" font-size="24" text-anchor="middle" fill="white">200x Faster API Requests</text>
+</svg>

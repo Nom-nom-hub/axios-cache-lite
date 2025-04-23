@@ -1,0 +1,50 @@
+<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="640" y="80" font-family="Arial" font-size="40" font-weight="bold" text-anchor="middle" fill="#1864ab">Simple Implementation</text>
+  
+  <!-- Subtitle -->
+  <text x="640" y="130" font-family="Arial" font-size="24" text-anchor="middle" fill="#495057">Core functionality in just ~20 lines of code</text>
+  
+  <!-- Code box -->
+  <rect x="140" y="170" width="1000" height="400" rx="10" fill="#212529"/>
+  
+  <!-- Code content -->
+  <text x="180" y="210" font-family="monospace" font-size="18" fill="#e9ecef">// In-memory cache</text>
+  <text x="180" y="240" font-family="monospace" font-size="18" fill="#e9ecef">const memoryCache = new Map();</text>
+  <text x="180" y="270" font-family="monospace" font-size="18" fill="#e9ecef"></text>
+  <text x="180" y="300" font-family="monospace" font-size="18" fill="#e9ecef">export async function cachedAxios(config, opts = {}) {</text>
+  <text x="180" y="330" font-family="monospace" font-size="18" fill="#e9ecef">  const { ttl = 60000, staleWhileRevalidate = true, retry = 2 } = opts;</text>
+  <text x="180" y="360" font-family="monospace" font-size="18" fill="#e9ecef">  const cacheKey = `${config.url}${config.params ? JSON.stringify(config.params) : ''}`;</text>
+  <text x="180" y="390" font-family="monospace" font-size="18" fill="#e9ecef">  const now = Date.now();</text>
+  <text x="180" y="420" font-family="monospace" font-size="18" fill="#e9ecef">  </text>
+  <text x="180" y="450" font-family="monospace" font-size="18" fill="#e9ecef">  // Check cache</text>
+  <text x="180" y="480" font-family="monospace" font-size="18" fill="#e9ecef">  const cached = memoryCache.get(cacheKey);</text>
+  <text x="180" y="510" font-family="monospace" font-size="18" fill="#e9ecef">  if (cached) {</text>
+  <text x="180" y="540" font-family="monospace" font-size="18" fill="#e9ecef">    const isExpired = now > cached.expiresAt;</text>
+  <text x="180" y="570" font-family="monospace" font-size="18" fill="#74c0fc">    if (!isExpired) return cached.response; // Fresh cache hit</text>
+  <text x="180" y="600" font-family="monospace" font-size="18" fill="#e9ecef">    </text>
+  <text x="180" y="630" font-family="monospace" font-size="18" fill="#74c0fc">    if (staleWhileRevalidate) {</text>
+  <text x="180" y="660" font-family="monospace" font-size="18" fill="#74c0fc">      // Revalidate in background and return stale data</text>
+  <text x="180" y="690" font-family="monospace" font-size="18" fill="#74c0fc">      fetchAndCache(config, cacheKey, ttl).catch(() => {});</text>
+  <text x="180" y="720" font-family="monospace" font-size="18" fill="#74c0fc">      return cached.response;</text>
+  <text x="180" y="750" font-family="monospace" font-size="18" fill="#e9ecef">    }</text>
+  <text x="180" y="780" font-family="monospace" font-size="18" fill="#e9ecef">  }</text>
+  <text x="180" y="810" font-family="monospace" font-size="18" fill="#e9ecef">  </text>
+  <text x="180" y="840" font-family="monospace" font-size="18" fill="#e9ecef">  // Cache miss or expired without SWR</text>
+  <text x="180" y="870" font-family="monospace" font-size="18" fill="#e9ecef">  return fetchAndCache(config, cacheKey, ttl, retry);</text>
+  <text x="180" y="900" font-family="monospace" font-size="18" fill="#e9ecef">}</text>
+  
+  <!-- Highlight box for core logic -->
+  <rect x="170" y="565" width="800" height="160" rx="5" fill="none" stroke="#fcc419" stroke-width="3" stroke-dasharray="10,5"/>
+  
+  <!-- Annotations -->
+  <text x="1000" y="650" font-family="Arial" font-size="20" font-weight="bold" fill="#fcc419">Core Logic</text>
+  <path d="M1000,660 L950,650" stroke="#fcc419" stroke-width="3"/>
+  
+  <!-- Footer -->
+  <text x="640" y="600" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#1864ab">Simple, readable, and maintainable</text>
+  <text x="640" y="640" font-family="Arial" font-size="18" text-anchor="middle" fill="#495057">The full implementation with localStorage, retry logic, and more is still only ~100 lines</text>
+</svg>
