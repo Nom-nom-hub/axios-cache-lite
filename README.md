@@ -214,9 +214,9 @@ const response = await cachedAxios<{ id: number, name: string }>(
 console.log(response.data.name); // TypeScript knows this is a string
 ```
 
-## Blog Post: How I Solved Axios Caching in 20 LOC
+## Blog Post: How I Solved Axios Caching in 100 LOC
 
-Check out our [blog post on Dev.to](https://dev.to/nomnomhub/introducing-axios-cache-lite-zero-config-caching-for-axios-in-100-lines-of-code-2g4i) to learn about the design decisions behind axios-cache-lite and how we implemented the core functionality in just 20 lines of code.
+Check out our [blog post on Dev.to](https://dev.to/nomnomhub/introducing-axios-cache-lite-zero-config-caching-for-axios-in-100-lines-of-code-2g4i) to learn about the design decisions behind axios-cache-lite and how we implemented the core functionality in just 100 lines of code.
 
 ## License
 
