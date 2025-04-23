@@ -20,11 +20,21 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm install eslint --save-dev
-    - run: npm run lint || echo "Linting failed but continuing"
-    - run: npm test
-    - run: npm run benchmark || echo "Benchmark failed but continuing"
+    - name: Install dependencies
+      run: |
+        if [ -f package-lock.json ]; then
+          npm ci
+        else
+          npm install
+        fi
+    - name: Install dev dependencies
+      run: npm install eslint --save-dev
+    - name: Run linting
+      run: npm run lint || echo "Linting failed but continuing"
+    - name: Run tests
+      run: npm test
+    - name: Run benchmark
+      run: npm run benchmark || echo "Benchmark failed but continuing"
 
   publish:
     needs: test
@@ -38,8 +48,16 @@ jobs:
       with:
         node-version: '18.x'
         registry-url: 'https://registry.npmjs.org'
-    - run: npm ci
-    - run: npm run build
-    - run: npm publish
+    - name: Install dependencies
+      run: |
+        if [ -f package-lock.json ]; then
+          npm ci
+        else
+          npm install
+        fi
+    - name: Build package
+      run: npm run build
+    - name: Publish to npm
+      run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
