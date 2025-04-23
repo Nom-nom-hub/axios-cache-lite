@@ -38,6 +38,7 @@ axios-cache-lite-pro.zip
 # Marketing materials
 images/
 *.svg
+!docs/*.svg
 
 # License related
 license-generator.js
