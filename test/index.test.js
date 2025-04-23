@@ -3,11 +3,28 @@
  */
 
 import assert from 'assert';
-import { cachedAxios, clearCache } from '../src/index.js';
 
-// Mock axios and localStorage
+// Set up mocks before importing the module under test
 let mockResponses = [];
 let requestCount = 0;
+
+// Mock axios
+global.axios = async (config) => {
+  requestCount++;
+
+  // Simulate network error if configured
+  if (mockResponses.some(r => r.url === config.url && r.error)) {
+    const error = new Error('Network Error');
+    error.config = config;
+    throw error;
+  }
+
+  const response = mockResponses.find(r => r.url === config.url)?.response || {
+    data: { message: 'Default mock response' }
+  };
+
+  return { ...response, config };
+};
 
 // Mock localStorage
 const mockStorage = new Map();
@@ -18,21 +35,8 @@ global.localStorage = {
   clear: () => mockStorage.clear()
 };
 
-// Mock axios module
-global.axios = async (config) => {
-  requestCount++;
-
-  // Simulate network error if configured
-  if (mockResponses.some(r => r.url === config.url && r.error)) {
-    throw new Error('Network Error');
-  }
-
-  const response = mockResponses.find(r => r.url === config.url)?.response || {
-    data: { message: 'Default mock response' }
-  };
-
-  return { ...response, config };
-};
+// Now import the module under test
+import { cachedAxios, clearCache } from '../src/index.js';
 
 // Reset mocks before each test
 function resetMocks() {

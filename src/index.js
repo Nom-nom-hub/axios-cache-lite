@@ -3,13 +3,14 @@
  * @module axios-cache-lite
  */
 
-// Allow for mocking in tests
-let axiosInstance;
-try {
-  axiosInstance = (await import('axios')).default;
-} catch (e) {
-  // For testing environments where dynamic import might not work
-  axiosInstance = global.axios || require('axios');
+// Import axios with fallback for testing
+let axios;
+if (typeof global !== 'undefined' && global.axios) {
+  // Use the global mock in test environment
+  axios = global.axios;
+} else {
+  // Use the real axios in production
+  axios = (await import('axios')).default;
 }
 
 // In-memory cache store
@@ -68,7 +69,7 @@ async function revalidate(config, cacheKey, ttl, useLocalStorage) {
 // Fetch with retry logic
 async function fetchWithRetry(config, cacheKey, ttl, useLocalStorage, retries, delay = 300) {
   try {
-    const response = await axiosInstance(config);
+    const response = await axios(config);
     const cacheEntry = { response, expiresAt: Date.now() + ttl };
 
     // Save to memory cache
